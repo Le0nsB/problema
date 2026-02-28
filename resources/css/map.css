@@ -1,0 +1,356 @@
+.container {
+    padding: 0 !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+}
+
+#map {
+    width: 100%;
+    height: calc(100vh - 72px);
+    background: #0f172a;
+    display: block;
+    position: relative;
+}
+
+.sidebar {
+    position: fixed;
+    top: 72px;
+    right: -440px;
+    width: 420px;
+    height: calc(100vh - 72px);
+    background: rgba(248, 250, 253, 0.98);
+    box-shadow: -20px 0 45px rgba(15, 23, 42, 0.2);
+    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+    overflow-y: auto;
+    border-left: 1px solid rgba(17, 24, 39, 0.08);
+    backdrop-filter: blur(10px);
+}
+
+.sidebar.open {
+    right: 0;
+}
+
+.sidebar-header {
+    padding: 1.1rem 1.2rem;
+    border-bottom: 1px solid #e1e8f2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    transition: background 0.3s ease;
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.15px;
+}
+
+.close-sidebar {
+    background: rgba(255, 255, 255, 0.22);
+    border: none;
+    color: white;
+    font-size: 1.35rem;
+    cursor: pointer;
+    padding: 0;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.close-sidebar:hover {
+    background: rgba(255, 255, 255, 0.36);
+    transform: rotate(90deg);
+}
+
+.sidebar-content {
+    padding: 1rem;
+}
+
+.report-form {
+    background: #ffffff;
+    border: 1px solid #e4ebf5;
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+}
+
+.report-form h3 {
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+    color: #1f2937;
+    font-weight: 700;
+}
+
+.report-form .form-subtitle {
+    margin: -0.25rem 0 1rem;
+    font-size: 0.84rem;
+    color: #64748b;
+    line-height: 1.35;
+}
+
+.report-form .form-group {
+    margin-bottom: 1rem;
+}
+
+.report-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+
+.report-form label {
+    display: block;
+    margin-bottom: 0.45rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #334155;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+}
+
+.report-form input,
+.report-form select,
+.report-form textarea {
+    width: 100%;
+    padding: 0.72rem 0.78rem;
+    border: 1px solid #d6deea;
+    border-radius: 11px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    background: #ffffff;
+    color: #111827;
+}
+
+.report-form select {
+    appearance: none;
+    padding-right: 0.78rem;
+}
+
+.report-form input:focus,
+.report-form select:focus,
+.report-form textarea:focus {
+    outline: none;
+    border-color: #dc143c;
+    box-shadow: 0 0 0 4px rgba(220, 20, 60, 0.12);
+}
+
+.report-form .field-hint {
+    margin-top: 0.4rem;
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.report-form .checkbox-field {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    background: #f8faff;
+    border: 1px solid #e1e8f2;
+    border-radius: 11px;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.report-form .checkbox-field:hover {
+    border-color: #cad6e8;
+    background: #f4f8ff;
+}
+
+.report-form .checkbox-field input {
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    accent-color: #dc143c;
+    flex-shrink: 0;
+}
+
+.report-form .checkbox-field span {
+    font-size: 0.92rem;
+    color: #334155;
+    line-height: 1.3;
+}
+
+.report-form button {
+    width: 100%;
+    padding: 0.88rem;
+    background: #111827;
+    color: white;
+    border: none;
+    border-radius: 11px;
+    cursor: pointer;
+    font-size: 0.93rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    box-shadow: 0 10px 22px rgba(126, 16, 40, 0.35);
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+.report-form button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px rgba(126, 16, 40, 0.45);
+}
+
+.report-form button .btn-icon {
+    margin-right: 0.5rem;
+}
+
+.report-form button:active {
+    transform: translateY(0);
+}
+
+.report-list {
+    margin-top: 1.5rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid #dde5f1;
+}
+
+.report-list h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+    color: #334155;
+    font-weight: 600;
+}
+
+.stop-stats {
+    margin-bottom: 0.8rem;
+    padding: 0.7rem 0.75rem;
+    border-radius: 10px;
+    background: #eef4ff;
+    border: 1px solid #d7e4ff;
+    color: #1e3a8a;
+    font-size: 0.83rem;
+    font-weight: 600;
+}
+
+.report-empty {
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 10px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    color: #475569;
+    font-size: 0.84rem;
+}
+
+.report-item {
+    padding: 0.9rem;
+    border-radius: 12px;
+    margin-bottom: 0.75rem;
+    font-size: 0.84rem;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2);
+    position: relative;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.report-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 12px 24px rgba(15, 23, 42, 0.26);
+}
+
+.alert {
+    padding: 1rem;
+    border-radius: 10px;
+    border-left: 4px solid;
+}
+
+.alert-error {
+    background: #fff5f5;
+    color: #c53030;
+    border-color: #fc8181;
+}
+
+.fab-button {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 60px;
+    height: 60px;
+    background: #111827;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 12px 28px rgba(126, 16, 40, 0.45);
+    cursor: pointer;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fab-button:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 16px 34px rgba(126, 16, 40, 0.5);
+}
+
+.fab-button:active {
+    transform: scale(0.95);
+}
+
+.fab-tooltip {
+    position: absolute;
+    right: 80px;
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    font-size: 0.82rem;
+    font-weight: 500;
+}
+
+.fab-button:hover .fab-tooltip {
+    opacity: 1;
+    right: 75px;
+}
+
+.fab-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid rgba(0, 0, 0, 0.85);
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+}
+
+@media (max-width: 520px) {
+    .sidebar {
+        width: 100%;
+        right: -100%;
+    }
+
+    .report-form .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .fab-button {
+        bottom: 1rem;
+        right: 1rem;
+    }
+}

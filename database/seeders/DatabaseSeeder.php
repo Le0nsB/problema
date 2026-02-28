@@ -19,7 +19,12 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->create([
             'name' => 'Test User',
+            'username' => 'testuser',
             'email' => 'test@example.com',
+        ]);
+
+        $this->call([
+            BusStopSeeder::class,
         ]);
     }
 }
